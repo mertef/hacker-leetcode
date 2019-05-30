@@ -2,7 +2,7 @@
 
 ## Problem
 
-![problem](/Users/joemertef/Desktop/github/hacker-leetcode/merge-sort/problem.png)
+![problem](./problem.png)
 
 ## Function Description
 
