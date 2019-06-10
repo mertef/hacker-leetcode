@@ -1,0 +1,19 @@
+#+OPTIONS: tex:dvipng
+#+OPTIONS: tex:dvisvgm
+#+OPTIONS: tex:t
+#+STARTUP: latexpreview
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:nil todo:t |:t
+#+AUTHOR: mertef
+#+CREATOR: mertef
+#+EMAIL: mertef@hotmail.com
+#+DATE: <2019-06-10 Mon>
+#+TITLE: Max Min
+* Description
+#+BEGIN_HTML
+<object data="./angry-children-English.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="./angry-children-English.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://yoursite.com/the.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+#+END_HTML
+
