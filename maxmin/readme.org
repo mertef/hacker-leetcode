@@ -19,7 +19,7 @@ You will be given a list of integers, , and a single integer . You must create a
 </object>
 #+END_HTML
 * Code
-#+BEGIN_SRC swift
+#+BEGIN_SRC swift -n
 func maxMin(k: Int, arr: [Int]) -> Int {
     var maxin = Int.max
     var  sorted = arr.sorted()
