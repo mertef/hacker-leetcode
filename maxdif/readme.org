@@ -1,0 +1,55 @@
+#+TITLE: Find max difference
+#+DATE: <2019-06-11 Tue>
+#+AUTHOR: Mertef
+#+EMAIL: joemertef@joes-MBP
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+CREATOR: Emacs 24.5.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+* Find the max Difference in a given array
+#+BEGIN_VERSE
+for a given array: 
+e.g [2, 3, 10, 2, 4, 8, 1]
+differences are calculated as:
+3 - [2] = [1]
+10 - [3,2] = [7,8]
+4 -[2,3,2] = [2,1,2]
+8 - [4, 2, 3, 2] = [4, 6, 5, 6]
+so the maximum is found at 10 - 2 = 8
+#+END_VERSE
+* swift code to solve the problem
+#+BEGIN_SRC swift -n
+func maxDifference(arr:[Int]) -> Int {
+    var maxdif = 0
+    for i in stride(from: 1, to: arr.count, by: 1) {
+        let v = arr[i]
+        for j in stride(from: 0, to: i, by: 1) {
+            if v > arr[j] {
+              let d = v - arr[j]
+                if maxdif < d {
+                    maxdif = d
+                }
+            }
+        }
+    }
+    print("max dif = \(maxdif)")
+    return maxdif
+}
+#+END_SRC
+* test cases
+#+BEGIN_VERSE
+ func testMaxDif()  {
+//        var arr = [2, 3, 10, 2, 4, 8, 1]
+        var arr = [1, 2, 6, 4]
+
+        maxDifference(arr: arr)
+        
+    }
+
+#+END_VERSE
