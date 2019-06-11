@@ -43,7 +43,8 @@ func maxDifference(arr:[Int]) -> Int {
 }
 #+END_SRC
 * test cases
-#+BEGIN_VERSE
+#+BEGIN_SRC 
+
  func testMaxDif()  {
 //        var arr = [2, 3, 10, 2, 4, 8, 1]
         var arr = [1, 2, 6, 4]
@@ -51,5 +52,5 @@ func maxDifference(arr:[Int]) -> Int {
         maxDifference(arr: arr)
         
     }
+#+END_SRC
 
-#+END_VERSE

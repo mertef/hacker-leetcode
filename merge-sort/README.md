@@ -22,5 +22,16 @@ countInversions has the following parameter(s)
 
   2. The second line contains  space-separated integers, .
 
-#Constraints
-- 
+# Constraints
+![constraints](./constraints.png)
+
+# Sample Input #
+
+'''
+2
+5
+1 1 1 2 2
+5
+2 1 3 1 2
+'''
+
