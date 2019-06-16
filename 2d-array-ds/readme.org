@@ -1,0 +1,82 @@
+#+TITLE: 2D Array - DS
+#+DATE: <2019-06-16 Sun>
+#+AUTHOR: Mertef
+#+EMAIL: joemertef@joes-MBP
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+CREATOR: Emacs 24.5.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+OPTIONS: tex:t
+#+LATEX_HEADER: \usepackage{cases}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LaTeX_CLASS_OPTIONS: [a4paper,12pt]
+* 2D Array - DS
+
+  Give a 6 X 6 2D array, arr:
+  #+BEGIN_VERSE
+  -9 -9 -9 1 1 1
+  0  -9 0  4 3 2
+  -9 -9 -9 1 2 3
+  0  0  8  6 6 0
+  0  0  0  -2 0 0
+  0  0  1  2 4 0
+  We calculate the following 16 hourglass values
+  -63, -34, -9, 12,
+  -10, 10, 28, 23,
+  -27, -11, -2, 10,
+  9, 17, 25, 18
+  #+END_VERSE
+* Code swift
+#+BEGIN_SRC swift -n
+func hourglassSum(arr: [[Int]]) -> Int {
+  var max = Int.min
+  let rowMax = arr.count
+  let colMax = arr[0].count
+  let hgrowMax = 3
+  let hgcolMax = 3
+ var houreglass = [[Int]](repeating: [Int](repeating: 0, count: hgcolMax), count: hgrowMax)
+    for i in stride(from: 0, to: rowMax, by: 1) {
+        for j in stride(from: 0, to: colMax, by: 1) {
+            if i + hgrowMax <= rowMax && j + hgcolMax <= colMax{
+                let ifrom = i
+                let jfrom = j
+                for ii in ifrom..<ifrom + hgrowMax {
+                    for jj in jfrom..<jfrom + hgcolMax {
+                        houreglass[ii - ifrom][jj - jfrom] = arr[ii][jj]
+                    }
+                }
+                let sum = getSumOfHoureglass(hgglass: houreglass)
+                //print("sum = \(sum)")
+                if max < sum {
+                    max = sum
+                }
+            }
+        }
+    }
+    //print("max = \(max)")
+  return max
+}
+func getSumOfHoureglass(hgglass:[[Int]]) -> Int{
+    var sum = 0
+    for i in 0..<hgglass.count {
+        for j in 0..<hgglass[0].count {
+            
+            let a  = hgglass[i][j]
+            sum += a
+            //print("\(a)", separator: " ", terminator: " ")
+        }
+         //print("")
+    }
+    sum -= (hgglass[1][0] + hgglass[1][2])
+//    print("")
+    return sum
+}
+#+END_SRC
+
+  
